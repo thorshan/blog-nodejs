@@ -1,0 +1,21 @@
+<% title = "Blog | Home" %>
+<div class="container">
+    <h2>All Posts</h2>
+    <% if (!posts || posts.length === 0) { %>
+        <p>No posts yet.</p>
+    <% } else { %>
+        <% posts.forEach(post => { %>
+         <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= post.title %>
+                </h5>
+                <p class="card-text">
+                    <%= post.content.substring(0, 200) %> ...
+                </p>
+                <p class="card-text"><small class="text-muted">By <%= post.author?.name || "Unknown" %> - <%= post.createdAt %></small></p>
+            </div>
+         </div>
+        <% }) %>
+    <% } %>
+</div>

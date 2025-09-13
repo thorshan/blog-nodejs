@@ -1,0 +1,24 @@
+<% title = "Blog | Admin" %>
+<div class="container">
+  <h2>Admin - Users</h2>
+  <table class="table table-sm table-striped">
+    <thead class="table-dark">
+      <th>No.</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Created Date</th>
+    </thead>
+    <tbody>
+      <% users.forEach((user, index) => { %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= user.createdAt %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

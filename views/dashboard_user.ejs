@@ -1,0 +1,25 @@
+<% title = "Blog | User" %>
+<div class="container">
+    <h2>Your post</h2>
+    <a href="/posts/create" class="btn btn-sm btn-primary">Create new post</a>
+    <% if (!posts || posts.length === 0) { %>
+     <p>No post found.</p>
+    <% } else { %>
+        <table class="table table-sm table-striped">
+            <thead class="table-dark">
+                <th>No.</th>
+                <th>Title</th>
+                <th>Created</th>
+            </thead>
+            <tbody>
+                <% posts.forEach((post, index) => { %>
+                 <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= post.title %></td>
+                    <td><%= post.createdAt %></td>
+                 </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</div>
