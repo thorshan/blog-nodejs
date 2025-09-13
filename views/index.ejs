@@ -15,6 +15,9 @@
                 </p>
                 <p class="card-text"><small class="text-muted">By <%= post.author?.name || "Unknown" %> - <%= post.createdAt %></small></p>
             </div>
+            <div class="card-footer">
+                <a href="/posts/<%= post.id %>" class="btn btn-sm btn-primary">View post</a>
+            </div>
          </div>
         <% }) %>
     <% } %>

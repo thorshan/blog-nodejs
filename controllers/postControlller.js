@@ -15,17 +15,23 @@ const createForm = (req, res) => {
 const create = async (req, res) => {
     const { title, content } = req.body;
     const post = await Post.create({
-        title, content, author : req.user._id
+        title, content, author : req.user._id 
     });
     res.redirect('/posts/dashboard');
+}
+
+// View post
+const viewPost = async (req, res) => {
+    const post = await Post.findById(req.params.id);
+    res.render("view_post", {post});
 }
 
 // Show user's posts
 const userPosts = async (req, res) => {
     const posts = await Post.find({ author : req.user._id }).sort({createdAt : -1});
     res.render("dashboard_user", {posts, user : req.user});
-    console.log(req.user.name);
 }
+
 
 // Get all user to Admin dashboard
 const adminUsers = async (req, res) => {
@@ -39,5 +45,6 @@ module.exports = {
     createForm,
     create,
     userPosts,
-    adminUsers
+    adminUsers,
+    viewPost
 }
